@@ -1,0 +1,42 @@
+<div class="row mt-3">
+    <div class="col-md-12" style="text-align: right;">
+        <a routerLink="/book/new" class="btn btn-success">Add new book</a>
+    </div>
+</div>
+<div class="row mt-3">
+    <div class="h1">All Book</div>
+    <div class="col-md-12 mt-2">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Book ID</th>
+                    <th>Name</th>
+                    <th>Authos</th>
+                    <th>Publisher</th>
+                    <th>Price</th>
+                    <th>Manage</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <tr *ngFor="let b of books">
+
+
+                    <td>{{ b.book_id }}</td>
+                    <td>{{ b.name }}</td>
+                    <td>{{ b.author }}</td>
+                    <td>{{ b.publisher }}</td>
+                    <td>{{ b.price }}</td>
+                    <td>
+                        <a class="btn btn-info btn-sm" routerLink="/book/edit/{{b._id}}">
+                            Edit
+                        </a>
+                        <a class="btn btn-danger btn-sm" (click)="deleteBook(b._id)">
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
